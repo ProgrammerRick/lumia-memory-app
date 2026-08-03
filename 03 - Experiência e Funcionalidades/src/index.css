@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* ================================
+   LUMIA DESIGN SYSTEM — CSS Theme
+   ================================ */
+
+@theme {
+  /* Primary Palette — Warm Amber/Gold */
+  --color-lumia-50: #FFF8F0;
+  --color-lumia-100: #FFEFD6;
+  --color-lumia-200: #FFDCA8;
+  --color-lumia-300: #FFC573;
+  --color-lumia-400: #FFAA3E;
+  --color-lumia-500: #F59222;
+  --color-lumia-600: #D97618;
+  --color-lumia-700: #B45A14;
+  --color-lumia-800: #8E4512;
+  --color-lumia-900: #6B3410;
+
+  /* Accent — Soft Violet */
+  --color-violet-50: #F5F0FF;
+  --color-violet-100: #EDE5FF;
+  --color-violet-200: #DDD0FF;
+  --color-violet-300: #C4ADFF;
+  --color-violet-400: #A87FFF;
+  --color-violet-500: #8B5CF6;
+  --color-violet-600: #7C3AED;
+  --color-violet-700: #6D28D9;
+  --color-violet-800: #5B21B6;
+  --color-violet-900: #4C1D95;
+
+  /* Background — Deep Night */
+  --color-night-50: #F8F6FC;
+  --color-night-100: #EEEAF5;
+  --color-night-200: #DDD5EC;
+  --color-night-300: #C4B8DB;
+  --color-night-400: #A593C5;
+  --color-night-500: #8972AF;
+  --color-night-600: #725B96;
+  --color-night-700: #5E497B;
+  --color-night-800: #4F3E66;
+  --color-night-900: #2D2341;
+  --color-night-950: #1A1025;
+
+  /* Surface Colors */
+  --color-surface-primary: #1E1430;
+  --color-surface-secondary: #261A3D;
+  --color-surface-elevated: #2F2148;
+  --color-surface-card: rgba(46, 33, 72, 0.6);
+  --color-surface-glass: rgba(255, 255, 255, 0.05);
+
+  /* Text Colors */
+  --color-text-primary: #F8F6FC;
+  --color-text-secondary: #C4B8DB;
+  --color-text-muted: #8972AF;
+  --color-text-accent: #FFAA3E;
+
+  /* Shadows */
+  --shadow-glow-sm: 0 0 15px rgba(255, 170, 62, 0.15);
+  --shadow-glow-md: 0 0 30px rgba(255, 170, 62, 0.2);
+  --shadow-glow-lg: 0 0 60px rgba(255, 170, 62, 0.25);
+  --shadow-glow-violet: 0 0 30px rgba(139, 92, 246, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.4);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* Font Families */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.5s ease-out forwards;
+  --animate-slide-down: slide-down 0.4s ease-out forwards;
+  --animate-scale-in: scale-in 0.4s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+}
+
+/* ================================
+   Keyframes
+   ================================ */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 170, 62, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(255, 170, 62, 0.3); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ================================
+   Base Styles
+   ================================ */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #1A1025;
+  color: #F8F6FC;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 170, 62, 0.3);
+  color: #F8F6FC;
+}
+
+/* Glass Effect Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Gradient Text */
+.text-gradient-lumia {
+  background: linear-gradient(135deg, #FFAA3E, #F59222, #D97618);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #A87FFF, #8B5CF6, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, #FFDCA8, #FFAA3E, #F59222);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Safe area for mobile */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
