@@ -1,0 +1,72 @@
+# PROJECT_RULES — Lumia
+
+> Este documento contém as regras **permanentes** do projeto Lumia.
+> Elas são definitivas e valem para todas as etapas futuras (1 a 7),
+> mesmo em novos chats/sessões. Nenhuma regra aqui deve ser quebrada
+> sem autorização explícita do responsável pelo produto.
+
+## 1. Natureza do projeto
+
+- O Lumia é um projeto **contínuo e de longo prazo**, desenvolvido em 7 etapas.
+- Cada etapa parte da versão anterior. **Nunca recriar o projeto do zero.**
+- Todas as decisões tomadas em uma etapa são consideradas **definitivas**,
+  salvo indicação explícita em contrário.
+
+## 2. Stack tecnológica (contrato do projeto)
+
+Tecnologias **obrigatórias e definitivas**:
+
+- React
+- Vite
+- TypeScript
+- Tailwind CSS (v4, configuração via `@theme` em CSS)
+- Framer Motion
+- Lucide React
+
+**Proibido migrar para:** Next.js, React Native, Expo, Angular, Vue, Svelte, Electron,
+ou qualquer outra arquitetura/framework diferente do contrato acima.
+
+**Proibido adicionar bibliotecas de roteamento externas** (ex.: react-router) sem
+autorização — a navegação do Lumia é feita por um sistema de estado interno
+(`NavigationContext`), pois o produto se comporta como um app, não como um site
+com URLs públicas.
+
+## 3. Regras absolutas de evolução
+
+- Nunca recriar o projeto.
+- Nunca apagar funcionalidades existentes.
+- Nunca remover componentes existentes.
+- Nunca trocar bibliotecas já adotadas.
+- Nunca alterar a arquitetura de pastas sem necessidade real.
+- Sempre evoluir a partir da versão existente.
+- Sempre preservar o design, o Design System e as animações já criadas.
+- Sempre preservar a organização de pastas descrita em `ARCHITECTURE.md`.
+- Ao alterar um arquivo, modificar **apenas o necessário** — nunca reescrever
+  arquivos inteiros sem motivo.
+
+## 4. Identidade de produto (não pode ser descaracterizada)
+
+- O Lumia **não é uma rede social** (sem feed público, curtidas, seguidores,
+  comentários públicos, compartilhamento social nativo).
+- O Lumia **não é um app de notas** (não deve parecer um bloco de notas
+  genérico, checklist ou produtividade).
+- O Lumia é um **santuário pessoal de memórias**: fotos, textos, vídeos e
+  áudios guardados com cuidado, elegância e emoção.
+- O tom visual é sempre: nostálgico, elegante, minimalista, tranquilo,
+  premium — nível de acabamento inspirado na Apple.
+
+## 5. Processo obrigatório ao final de cada etapa
+
+Ao final de **cada** etapa, é obrigatório:
+
+1. Atualizar `docs/CHANGELOG.md` com as mudanças da etapa.
+2. Atualizar `docs/ROADMAP.md`, marcando a etapa concluída.
+3. Atualizar `docs/AI_MEMORY.md` com o novo estado do projeto.
+4. Rodar o build e confirmar que o projeto compila sem erros.
+
+## 6. Escopo por etapa
+
+Cada etapa deve implementar **apenas** o que foi solicitado para aquela fase.
+Não antecipar funcionalidades de etapas futuras (ex.: nesta Fase 1, nenhuma
+funcionalidade real de captura, armazenamento, IA ou autenticação deve existir
+— apenas estrutura, design e telas vazias).
