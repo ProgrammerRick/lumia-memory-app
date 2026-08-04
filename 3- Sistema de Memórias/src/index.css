@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   LUMIA — DESIGN SYSTEM TOKENS
+   Fonte da verdade visual do app. Ver docs/DESIGN_SYSTEM.md para detalhes.
+   ========================================================================== */
+
+@theme {
+  /* Tipografia — stack de sistema para herdar San Francisco no ecossistema Apple */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "New York", "Iowan Old Style", "Georgia", "Times New Roman", serif;
+
+  /* Paleta — Twilight / Candlelight */
+  --color-lumia-void: #050506;
+  --color-lumia-bg: #0b0b10;
+  --color-lumia-bg-soft: #121218;
+  --color-lumia-surface: #16161d;
+  --color-lumia-surface-high: #1c1c25;
+  --color-lumia-border: #2a2a35;
+
+  --color-lumia-gold: #e8b573;
+  --color-lumia-gold-soft: #f3d9a8;
+  --color-lumia-gold-deep: #c98f4a;
+
+  --color-lumia-lavender: #9b9ce6;
+  --color-lumia-lavender-soft: #c3c4f2;
+
+  --color-lumia-ink: #f5f1ea;
+  --color-lumia-ink-muted: #b3b0bd;
+  --color-lumia-ink-faint: #75727f;
+
+  /* Sombras suaves e profundas */
+  --shadow-lumia-soft: 0 8px 30px -12px rgba(0, 0, 0, 0.5);
+  --shadow-lumia-glow: 0 0 60px -10px rgba(232, 181, 115, 0.35);
+
+  /* Easing e animações */
+  --ease-lumia: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-float: lumia-float 7s ease-in-out infinite;
+  --animate-pulse-slow: lumia-pulse 4s ease-in-out infinite;
+  --animate-shimmer: lumia-shimmer 2.6s linear infinite;
+}
+
+@keyframes lumia-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes lumia-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes lumia-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+html,
+body {
+  background-color: var(--color-lumia-bg);
+  color: var(--color-lumia-ink);
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background-color: var(--color-lumia-gold);
+  color: var(--color-lumia-void);
+}
+
+/* Scrollbar discreta */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Reduz movimento para usuários sensíveis a animação, preservando a
+   experiência sem prejudicar performance/conforto. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ==========================================================================
+   COMPONENTES UTILITÁRIOS — Glassmorphism leve
+   ========================================================================== */
+
+@layer components {
+  .glass-panel {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02)
+    );
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-panel-strong {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.03)
+    );
+    backdrop-filter: blur(32px) saturate(160%);
+    -webkit-backdrop-filter: blur(32px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .text-gradient-gold {
+    background-image: linear-gradient(
+      120deg,
+      var(--color-lumia-gold-soft),
+      var(--color-lumia-gold) 45%,
+      var(--color-lumia-gold-deep)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .shimmer-text {
+    background-image: linear-gradient(
+      100deg,
+      rgba(245, 241, 234, 0.35) 20%,
+      rgba(245, 241, 234, 1) 50%,
+      rgba(245, 241, 234, 0.35) 80%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: var(--animate-shimmer);
+  }
+}
